@@ -1,14 +1,15 @@
 
-import math
+def primeChecker(number):
+    isPrime = True
+
+    for i in range(2, number):
+        if number % i == 0:
+            isPrime = False
+    if isPrime:
+        print("That is indeed a prime number")
+    else:
+        print("That is not a prime")
 
 
-def printCalc(height, width, cover):
-    area = height * width
-    numOfCans = math.ceil(area/cover)
-    print(f"You will need {numOfCans} cans of paint")
-
-
-testH = int(input("Height of wall: "))
-testW = int(input("Width of wall: "))
-coverage = 5
-printCalc(height=testH, width=testW, cover=coverage)
+n = int(input("Check this number: "))
+primeChecker(number=n)
