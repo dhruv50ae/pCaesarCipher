@@ -18,4 +18,16 @@ def encrypt(plainText, shiftAmount):
     print(f"Your ecrypted message is: {cipherText}")
 
 
-encrypt(plainText=text, shiftAmount=shift)
+def decrypt(cipherText, shiftAmount):
+    plainText = ''
+    for letter in cipherText:
+        position = alphabet.index(letter)
+        newPosition = position - shiftAmount
+        plainText += alphabet[newPosition]
+    print(f"Your decrypted message is: {plainText}")
+
+
+if direction == 'encode':
+    encrypt(plainText=text, shiftAmount=shift)
+elif direction == 'decode':
+    decrypt(cipherText=text, shiftAmount=shift)
