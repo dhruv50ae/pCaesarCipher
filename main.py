@@ -11,11 +11,12 @@ def caesar(startText, shiftAmount, cipherDirection):
     endText = ""
     if cipherDirection == 'decode':
         shiftAmount *= -1
-    for letter in startText:
-        position = alphabet.index(letter)
+    for char in startText:
+        position = alphabet.index(char)
         newPosition = position + shiftAmount
         endText += alphabet[newPosition]
     print(f"The {cipherDirection}d text is: {endText}")
 
 
+shift = shift % 25
 caesar(startText=text, shiftAmount=shift, cipherDirection=direction)
