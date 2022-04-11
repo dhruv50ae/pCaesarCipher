@@ -7,27 +7,15 @@ text = input("Type your message: ").lower()
 shift = int(input("Type the shift number: "))
 
 
-def encrypt(plainText, shiftAmount):
-    cipherText = ""
-
-    for letter in plainText:
+def caesar(startText, shiftAmount, cipherDirection):
+    endText = ""
+    if cipherDirection == 'decode':
+        shiftAmount *= -1
+    for letter in startText:
         position = alphabet.index(letter)
         newPosition = position + shiftAmount
-        newLetter = alphabet[newPosition]
-        cipherText += newLetter
-    print(f"Your ecrypted message is: {cipherText}")
+        endText += alphabet[newPosition]
+    print(f"The {cipherDirection}d text is: {endText}")
 
 
-def decrypt(cipherText, shiftAmount):
-    plainText = ''
-    for letter in cipherText:
-        position = alphabet.index(letter)
-        newPosition = position - shiftAmount
-        plainText += alphabet[newPosition]
-    print(f"Your decrypted message is: {plainText}")
-
-
-if direction == 'encode':
-    encrypt(plainText=text, shiftAmount=shift)
-elif direction == 'decode':
-    decrypt(cipherText=text, shiftAmount=shift)
+caesar(startText=text, shiftAmount=shift, cipherDirection=direction)
